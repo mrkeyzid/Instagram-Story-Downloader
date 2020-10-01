@@ -58,11 +58,11 @@ try {
 	try {
 
 		if ($customResponse['status'] === 'ok' && $customResponse['action'] === 'close') {
-			echo 'Checkpoint bypassed';
+			echo 'Checkpoint has bypassed';
                         exit();
 		}
 
-		$code = readln( 'Code that you received via ' . ( $verification_method ? 'email' : 'sms' ) . ':' );
+		$code = readln( 'Code that you are received via ' . ( $verification_method ? 'email' : 'sms' ) . ':' );
 		$ig->changeUser( $username, $password );
 		$customResponse = $ig->request($checkApiPath)
 									->setNeedsAuth(false)
@@ -75,9 +75,9 @@ try {
 									->getDecodedResponse();
 
 		if ($customResponse['status'] === 'ok' && (int) $customResponse['logged_in_user']['pk'] === (int) $user_id ) {
-			echo 'Finished, logged in successfully! Run this file again to validate that it works.';
+			echo 'Finished completely, logged in successfully! Run this file again to validate that it workfully.';
 		} else {
-			echo "Probably finished...\n";
+			echo "Probably have finished...\n";
 			var_dump( $customResponse );
 		}
 	} catch ( Exception $ex ) {
